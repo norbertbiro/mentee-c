@@ -1,0 +1,67 @@
+====================
+Calculatorul contine multe piese hardware: procesor, hard-disk (HDD), RAM - Fiecare avand functionalitatea ei.
+HDD este memoria persistenta (de lunga durata) - tot ce avem pe calculator, fisiere, programe, se afla acolo - datele raman salvate pe disk chiar daca inchidem calculatorul.
+Ca sa facem o analogie cu lumea reala, putem sa vedem HDD precum camerele din apartament. Un apartament cu 2 camere are 50 metri patrati, asta avem, cu asta ne descurcam. Punem mobila, ramane acolo. (mobila fiind fisiere, etc).
+
+====================
+RAM este memoria volatila (de scurta durata) - aceasta tine datele pentru programele care ruleaza in acel moment pe calculator.
+Browser-ul, de exemplu, atunci cand il pornim, este deschis ca un Proces (de catre sistemul de operare) si i se da in primire o bucata din acest RAM pentru a salva informatii precum datele pe care le vedem pe ecran cand intram pe site-uri.
+Evident, tot aici intra si programul in sine.
+Ca si analogie, putem sa-l vedem ca pe holul din apartament - atunci cand vrem sa facem niste exercitii, luam ganterele, le punem pe hol, si ne apucam sa facem exercitii. Cand terminam, luam ganterele si le ducem inapoi in debara.
+
+====================
+Procesorul (CPU - Central processing unit) este cel care face toata munca - este ceea ce face calculatorul sa fie calculator. (Acesta este creierul calculatorului).
+CPU executa operatii 3 operatii:
+Fetch - citeste instructiune din RAM
+decode - decodeaza instructiunea
+execute - executa instructiunea (precum aritmetica, comparare de date,  mutare de date in memorie)
+
+CPU, fiind o bucata de hardware, nu stie decat de 0 si 1.
+Ce inseamna acest 0 si 1 mai exact?
+
+In interiorul calculatorului, exista cabluri si circuite care transporta informatie - folosindu-se de electricitate.
+Avand un singur fir prin care circula electricitatea, semnalul poate sa fie deschis sau inchis. Bazandu-ne pe aceasta, putem reprezenta valoarea de 0 (inchis - nu trece electricitate) sau 1 (deschis - trece electricitate).
+---------------------------
+
+Vorbeam de procesor si prin faptul ca el intelege doar 0 si 1 - dar noi scriem partea de software.
+Cand scrii cod, folosesti text, cuvinte - specifice limbajului. Acel text trebuie transformat in 0 si 1 pentru procesor.
+Limbajele interpretate au nevoie de un tool (interpretor) care executa textul tau, linie cu linie -> mai exact, o transforma in 0 si 1, pentru ca procesorul sa o inteleaga, si ii trimite informatia ca sa fie procesata
+Limbajele compilate se folosesc de un compilator ca sa transforme textul in 0 si 1. Diferenta este ca acest lucru se face inainte de a porni programul. Ai terminat de scris codul, dai drumu la compilator, si la final ai un fisier (executabil/proces/binar) care poate fi rulat pe procesor.
+
+Pe scurt, ideea e ca bucata de cod trebuie transformata in 0 si 1, diferenta dintre cele 2 consta in momentul in care se face asta. => unul se face inainte (compilat), altul se face in timp real (interpretat)
+
+C++ este un limbaj compilat.
+Asta inseamna ca noi scriem codul in engleza, limbaj natural, etc., iar compilatorul genereaza cod binar (0 si 1) intr-un fisier separat, executabil, inteles de catre procesor.
+Atunci cand pornim acest executabil (Dublu click), un proces este creat (de sistemul de operare) si informatia este incarcata in RAM, astfel incat procesorul poate avea acces la el si il poate citi si executa.
+
+
+================================
+C++ este un limbaj care contine un set de instructiuni si cuvinte cheie specifice limbajului.
+Pe langa aceste cuvinte cheie specifice, avem acces si la standard (std) - un set de functii cu care putem lucra, deja create de oamenii care lucreaza la dezvoltarea limbajului.
+
+Hai sa discutam despre cateva tipuri de date.
+---------------------
+Atunci cand noi vrem sa folosim un numar de exemplu, trebuie sa ii zicem compilatorului ca o variabila pe nume numar, de tip int (integer - intreg) o sa primeasca valoarea 5.
+
+int numar = 5;
+
+Variabila numar este un intreg cu valoarea 5. A nu uita sa punem ; la finalul fiecarei instructiuni.
+---------------------
+bool (boolean) este un tip de date care poate avea doar 2 valori, true (adevarat) sau false (fals).
+
+bool succes = true;
+---------------------
+char (character) este un tip de date care poate pastra valoarea unei singure litere, cifre, etc.
+
+char myFavoriteLetter = 'y';
+---------------------
+string (set de caractere) este un tip de date adaugat de standard, care reprezinta un cuvant, un text, etc.
+
+string myFavoriteFood = "pizza";
+---------------------
+Sa presupunem ca vrem sa avem o variabila care sa ne salveze numele si varsta. Numele este un set de caractere (String) iar varsta este un numar (intreg).
+
+string myName = "Robert";
+int myAge = 27;
+
+================================

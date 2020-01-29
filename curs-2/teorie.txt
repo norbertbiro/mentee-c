@@ -1,0 +1,189 @@
+====================
+Este momentul sa vorbim despre structura unui program.
+V-am spus ca C++ este un limbaj compilat - codul pe care il scriem este transformat in cod masina (0 si 1) si pus intr-un fisier numit executabil. Atunci cand pornim programul, acesta trebuie sa inceapa de undeva - in C++, executia porneste tot timpul de la o functie numita main.
+
+O functie grupeaza la un loc mai multe linii de cod.
+
+O functie este definita de trei lucruri:
+- return type - tipul returnat de functie (sau 'void', daca nu returnam mai departe nimic)
+- numele functiei - ca sa o putem chema
+- parametrii functiei - variabile care pot fi folosite mai departe
+
+De asemenea, continutul functiei trebuie sa se afle intre acolade.
+
+Hai sa dam cateva exemple:
+-----------------------------
+Exemplul 1:
+O functie care nu returneaza nimic, care se numeste myFunction, si care nu primeste nici un parametru.
+
+void myFunction()
+{
+}
+
+Exemplul 2:
+O functie care returneaza un int, care se numeste doSum, si care primeste 2 numere (returnand suma acestora).
+
+A se observa urmatoarele:
+- avem un cuvant nou introdus: return. Acest keyword ne spune sa iesim din functie.
+- primim doi parametrii de tip int. Numele acestora este first si second. Putem sa le dam ce nume vrem noi, acest nume este dat ca sa fie folosit mai departe in interiorul functiei.
+
+int doSum(int first, int second)
+{
+	return first + second;
+}
+
+Daca nu este clar, va rog sa imi spuneti!
+-----------------------------
+
+
+Revenind - programul incepe de la o functie numita main.
+Aceasta functie returneaza un int, si nu primeste nici un parametru.
+
+Astfel, primul program poate fi o singura functie care returneaza 0:
+-----------------------------
+-----------------------------
+
+int main()
+{
+	return 0;
+}
+
+-----------------------------
+-----------------------------
+
+Primul program pe care il scriu programatorii este cel de a afisa ceva pe ecran.
+
+
+Un astfel de program arata in felul urmator:
+
+
+#include <iostream>
+
+int main()
+{
+  std::cout << "Hello World!";
+  return 0;
+}
+
+
+---------------------------
+Sa luam lucrurile noi, linie cu linie:O
+
+Linia 1 : #include <iostream>
+
+Aceasta linie ne permite sa adaugam functionalitate in plus codului nostru.
+V-am spus in cursul anterior urmatoarele lucruri:
+"Pe langa aceste cuvinte cheie specifice, avem acces si la standard (std) - un set de functii cu care putem lucra, deja create de oamenii care lucreaza la dezvoltarea limbajului."
+
+Exista un numar mare de functii deja create - acestea sunt adaugate in fisiere (numite headers).
+Pentru a avea acces la aceste functii, trebuie sa le adaugam in programul nostru.
+Practic,ce se intampla, atunci cand noi scriem linia de include, cand facem compilarea codului, compilatorul ia continutul acelor fisiere si il inlocuieste cu linia de include.
+Astfel, tot ce se afla acolo se afla acum in programul nostru.
+
+Fisierul header numit iostream se ocupa cu operatii de input-output (IO) pe streams (de unde si numele) - sau spus mai clar, cu citirea textului de la tastatura si scrierea textului pe ecran.
+
+Linia 5: std::cout << "Hello World!";
+
+Dupa ce dam include la iostream, avem acces la un obiect numit cout (character output device), din namespace-ul de standard (std). Ca sa il folosim, trebuie sa ne folosim de numele complet (std::cout).
+Nu vreau sa intru inca prea mult in detalii aici - toate functiile din standard sunt puse separat intr-un spatiu numit std, pentru a nu avea coliziuni de nume cu functii si variabile scrise de programatori.
+
+Cum ziceam: Avem acces la un obiect numit cout - acesta este modul in care noi interactionam cu consola (ecranul).
+Daca vrem sa afisam ceva pe ecran, trebuie sa ne folosim de operatorul de insertie "<<" - ce se afla dupa el este trimis catre ecran.
+
+Ca sa afisam cuvintele "Hello World!" pe ecran, trebuie sa scriem urmatoarea linie:
+std::cout << "Hello World!";
+---------------------------
+Ok, acum stim sa afisam lucruri pe ecran.
+Hai sa vedem cum putem sa si citim lucruri de la tastatura.
+
+Pe langa cout, avem acces si la un obiect numit cin - acesta este modul in care noi interactionam cu tastatura.
+Modul in care o facem, este similar cu cout - ne folosim de operatorul de extractie ">>" - ce se afla dupa el primeste valoarea pe care o trimitem din tastatura.
+
+Daca noi vrem sa trimitem valoarea 5 catre unui integer, vom face urmatoarele:
+
+int valoare;
+std::cout << "Introdu valoarea:";
+std::cin >> valoare;
+std::cout << "Valoarea introdusa este " << valoare;
+---------------------------
+Bun, acum stim sa lucram cu tastatura si cu ecranul.
+====================
+
+
+
+Urmatorul pas ar fi sa vorbim despre instructiunile de decizie, si anume if, else, else if
+Ca si analogie:
+- Daca ploua afara, imi iau umbrela.
+- Daca ninge, imi iau fularul.
+- Altfel (nu ploua, nu ninge) - imi iau sapca.
+
+In principiu, avem trei cuvinte importante:
+if, else if, else
+
+Vreau sa cititi urmatoarea pagina pentru informatii despre decizionale: https://www.w3schools.com/cpp/cpp_conditions.asp
+
+
+Un exemplu ar fi urmatorul:
+in cod, putem sa facem asta de exemplu cu valoarea unei variabile
+
+int valoare = 10;
+
+if (valoare > 0)
+{
+	std::cout << "Valoare este pozitiv";
+}
+else if (valoare < 0)
+{
+	std::cout << "Valoare este negativ";
+}
+else
+{
+	std::cout << "Valoare este 0";
+}
+
+========================
+Dupa aceea, vreau sa trecem si la instructiunea de while.
+While este o bucla repetitiva (cat timp o conditie este valida, codul din interiorul buclei este executat.
+
+Ca si analogie:
+- Cat timp ploua, tin umbrela deasupra capului
+
+bool repeat = true;
+
+while (repeat)
+{
+	std::cout << "Hello !!!!";
+}
+
+Aceste linii frmeaza o bucla infinita: codul din interior va fi executat la nesfarsit, pentru ca valoarea repeat va fi tot timpul setata pe true.
+Ca sa iesim din bucla, putem sa ne asiguram ca variabila repeat va fi setata pe false la un moment dat, sau putem sa ne folosim de instructiunea break;
+
+Un exemplu:
+-----------------------
+bool repeat = true;
+
+while (repeat)
+{
+	std::cout << "Hello !!!!";
+	break;
+}
+-----------------------
+Folosindu-ne de break, iesim din bucla direct. Alternativa ar fi fost sa setam repeat pe false
+-----------------------
+bool repeat = true;
+
+while (repeat)
+{
+	std::cout << "Hello !!!!";
+	repeat = false;
+}
+-----------------------
+
+Tema: "Ghiciti" numarul
+Cititi un numar de la tastatura, care sa fie numarul care trebuie ghicit.
+Apoi, trebuie sa ghiciti acel numar.
+Cititi numere de la tastatura pana dati de numarul initial.
+- daca numarul introdus de voi este mai mic decat cel initial, afisati "Caut un numar mai mare"
+- daca numarul introdus de voi este mai mare decat cel initial, afisati "Caut un numar mai mic"
+- daca numarul introdus este egal cu cel initial, afisati "Corect!" si iesiti din instructiunea de while
+

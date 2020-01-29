@@ -1,0 +1,215 @@
+Salutare oameni buni, haideti sa trecem la urmatorul curs.
+Cursul trecut am discutat despre if si while, cin si cout.
+
+Inainte de a incepe, v-as ruga ca atunci cand trimiteti tema, sa va asigurati ca ruleaza, si sa o testati de cateva ori ca sa vedeti ca merge in toate cazurile.
+Exceptie de la regula este atunci cand va blocati si/sau aveti nevoie de un pic de ajutor.
+
+De asemenea, va rog sa cititi cu atentie cursul inainte de tema, sau atunci cand va blocati. De obicei acolo gasiti exemple de cod.
+
+Cateva lucruri de mentionat la cursul trecut:
+---------------------------------------
+---------------------------------------
+std::cin este un stream care "asculta" la tastatura si preia input. Daca vrem sa citim 2,3, mai multe date, putem face asta pe o singura linie.
+
+int first, second;
+string third;
+
+std::cin >> first >> second >> third;
+
+Acesta este echivalentul a:
+
+std::cin >> first;
+std::cin >> second;
+std::cin >> third;
+---------------------------------------
+std::cout face acelasi lucru cand scrie la tastatura.
+
+int first = 10, second = 20;
+
+std::cout << "The value of first is " << first << "and the value of second is " << second;
+
+---------------------------------------
+---------------------------------------
+if/elseif/else
+
+if este conditionala. 
+Daca in cod am doua if-uri simple, ambele conditii vor fi verificate.
+
+bool afaraPloua = true, afaraEsteFrig = true;
+
+if (afaraPloua) {
+	// ia umbrela
+}
+
+if (afaraEsteFrig) {
+	// ia un hanorac
+}
+
+
+Aici, conditiile sunt independente.
+---------------------------------------
+Daca avem if/elseif:
+
+bool afaraPloua = true, afaraEsteFrig = true;
+
+if (afaraPloua) {
+	// ia umbrela
+}
+else if (afaraEsteFrig) {
+	// ia un hanorac
+}
+
+Daca ploua luam umbrela, altfel, daca e frig, luam un hanorac.
+
+Daca prima conditie este adevarata, nu o sa se execute si a doua.
+Scrie clar: Daca ceva, ALTFEL, Daca ...
+
+Ne folosim de if-if atunci cand cele 2 nu sunt dependente una de cealalta, si if-elseif atunci cand sunt.
+
+int value = ReadInput();
+
+if (value < 10) { std::cout << "Value is less than 10"; }
+else if (value < 20) { std::cout << "Value is between 10 and 20" };
+
+Intram in elseif daca value e mai mic decat 20.
+Pentru ca am ajuns aici, inseamna ca nu s-a indeplinit conditia de mai sus - deci value este mai mare decat 10.
+---------------------------------------
+Atunci cand folosim if, elseif, FARA UN ELSE final, eu inteleg ca acel cod trebuie executat doar in acele conditii, si ca exista alte situatii cand nu ar trebui executat.
+
+
+value = ReadInput();
+if (value > 0) { std::cout << "Numarul e pozitiv"; }
+else if (value <= 0) { std::cout << "Numarul este negativ sau 0; }
+
+Se vede ca am if/elseif, dar am trecut prin tot setul de valori.
+Atunci cand se intampla asta, se verifica 2 conditii:
+if (value > 0) si if (value <= 0)
+
+Daca am ajuns la elseif, stitm ca valoarea este negativa sau 0.
+Aici am putea simplifica si scrie else simplu.
+
+if (value > 0) { ... }
+else { ... }
+
+Astfel, executam o singura instructiune.
+
+---------------------------------------
+---------------------------------------
+Functiile sunt o modalitate de a separa un cod de altul, de a il pune laolalta pentru a fi refolosit.
+In loc sa avem 10 linii pe care le dam copy-paste, putem sa apelam o functie.
+Atunci cand trebuie sa modificam liniile, modificam intr-un singur loc.
+
+---------------------------------------
+---------------------------------------
+---------------------------------------
+Hai sa incepem cu cursul de azi, unde vom vorbi despre for, && si ||
+
+instructiunea for arata asta:
+
+for (int i = 0; i < 10; ++i) {
+	// cod
+}
+
+++i inseamna ca incrementam valoarea lui i. Similar cu i++, i += 1, i = i+1.
+
+Prima parte din for se executa o singura data. Apoi se valideaza conditia, se executa codul, si se incrementeaza valoarea.
+Similar cu:
+
+int i = 0;
+while (i < 10) {
+	// cod
+	++i;
+}
+---------------------------------------
+Ca sa validati mai multe conditii in acelasi timp, folositi operatorul && (SI)
+Rezultatul este adevarat daca toate conditiile sunt adevarate.
+
+
+if (conditie1 && conditie2) { ... }
+
+Acesta este echivalent a:
+if (conditie1) 
+{
+	if (conditie2) 
+	{
+		...
+	}
+}
+
+
+Exemplu:
+
+bool amPisica = true;
+bool pisicaEsteBolnava = true;
+
+if (amPisica && pisicaEsteBolnava) {
+	mergiLaVeterinar();
+}
+
+
+Nu vrem sa mergem la veterinar daca nu avem pisica, dar nici daca avem pisica si aceasta nu este bolnava.
+---------------------------------------
+De asemenea, exista operatorul || (SAU)
+Rezultatul este adevarat daca cel putin una din conditii este adevarata.
+
+if (conditie1 || conditie2) { ... }
+
+
+Exemplu:
+
+bool afaraEsteFrig = false;
+bool afaraPloua = true;
+
+if (afaraEsteFrig || afaraPloua) {
+	// pune hanorac pe tine
+}
+
+In acest caz, cel putin una din conditii este adevarata (afaraPloua), deci vom pune hanoracul pe noi :)
+
+
+---------------------------------------
+Tema
+
+
+
+Pentru ca am vazut ca nu e foarte clara instructiunea de break si continue, tema va fi urmatoarea:
+
+1) 
+Scrieti o functie care se foloseste de for sa parcurga numerele de la 0 la 100.
+Daca numarul este par, va fi adunat intr-o alta variabila, si se va trece la urmatorul numar.
+Daca numarul este mai mic decat 10, va fi afisat pe ecran.
+Daca numarul este intre 10 si 20, vom trece la urmatorul numar.
+
+
+
+
+2)
+Scrieti o functie care afiseaza pe ecran numerele de la 1 la 100, fiecare pe un rand.
+Daca numarul este multiplu de 3, afisati "Fizz" in loc de acel numar.
+Daca numarul este multiplu de 5, afisati "Buzz" in loc de acel numar.
+Daca numarul este multiplu si de 3 si de 5, afisati "FizzBuzz" in loc de acel numar.
+
+
+---------------------------------------
+PS.
+========================================
+Un numar este par daca restul impartirii lui la 2 este 0.
+int numar = 23;
+if (numar % 2 == 0) { 
+	std::cout << "Par"; 
+} else { 
+	std::cout << "Impar"; 
+}
+========================================
+Un numar este multiplu la 3 daca se imparte exact la acesta. 
+Exemplu:
+if (numar % 3 == 0)
+========================================
+Ca sa treceti pe o linie noua, trimiteti std::endl catre cout.
+
+Exemplu:
+std::cout << std::endl;
+
+
+
+
